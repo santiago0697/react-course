@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Loading from './Loading'
+import Header from './Header'
+import Item from './Item'
 
 class List extends Component {
   constructor(props) {
@@ -15,9 +17,18 @@ class List extends Component {
       this.setState({
         isLoading: false,
         videos: [
-          { id: 1 },
-          { id: 2 },
-          { id: 3 }
+          { 
+            id:0,
+            title:'¿Qué es CodelyTV? 🍄🔝 - Formación para programadores y divulgación del mundo del desarrollo',
+            url:'https://www.youtube.com/watch?v=rpMQd2DazTc',
+            thumbnail:'https://img.youtube.com/vi/rpMQd2DazTc/maxresdefault.jpg' 
+          },
+          {   
+            id:1,
+            title:'Introducción a PHP: Cómo configurar tu entorno de desarrollo 🐘',
+            url: 'https://www.youtube.com/embed/watch?v=v2IjMrpZog4',
+            thumbnail: 'https://img.youtube.com/vi/v2IjMrpZog4/maxresdefault.jpg',
+          }
         ]
       })
     }, 2000);
@@ -30,12 +41,13 @@ class List extends Component {
 
     return (
       <React.Fragment>
+        <Header />
         <div className="container">
           <div className="grid-container">
             <h1>{this.state.msg}</h1>
             {
-              videos.map((video) =>{
-                return (<span>#{video.id}</span>);
+              videos.map((video, index) =>{
+                return (<Item key={index} data={video}/>);
               })
             }
           </div>
