@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Loading from './Loading'
 import Header from './Header'
+import Footer from './Footer'
 import Item from './Item'
 
 class List extends Component {
@@ -52,6 +53,7 @@ class List extends Component {
             }
           </div>
         </div>
+        <Footer />
       </React.Fragment>
     );
   }
